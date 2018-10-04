@@ -1,25 +1,23 @@
-require File.dirname(__FILE__) + '/test_helper'
+require_relative 'test_helper'
 
-class CacheVersionTest < Test::Unit::TestCase
-  context 'with a memcache and db connection' do
-    setup do
-      system('memcached -d')
-      CacheVersionMigration.up
-    end
-    
-    teardown do
-      system('killall memcached')
-      CacheVersionMigration.down
-    end
+describe 'with a memcache and db connection' do
+  before do
+    system('memcached -d')
+    CacheVersionMigration.up
+  end
 
-    should 'increment cache version' do
-      5.times do |i|
-        assert_equal i, Object.version
-        Object.increment_version
-        assert_equal i + 1, Object.version
-      end
-      CacheVersion.clear_cache
-      assert_equal 5, Object.version
+  after do
+    system('killall memcached')
+    CacheVersionMigration.down
+  end
+
+  it 'will increment cache version' do
+    5.times do |i|
+      assert_equal i, Object.version
+      Object.increment_version
+      assert_equal i + 1, Object.version
     end
+    CacheVersion.clear_cache
+    assert_equal 5, Object.version
   end
 end

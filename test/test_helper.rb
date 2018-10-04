@@ -1,21 +1,16 @@
-require 'rubygems'
-require 'test/unit'
-require 'shoulda'
-require 'mocha/setup'
+require 'bundler'
+require 'minitest/autorun'
 
 $LOAD_PATH.unshift File.dirname(__FILE__) + "/../lib"
 $LOAD_PATH.unshift File.dirname(__FILE__) + "/../../memcache/lib"
 
 require 'cache_version'
 
-class Test::Unit::TestCase
-end
-
-CACHE = Memcache.new(:servers => 'localhost')
+CACHE = Memcache.new(:servers => ['localhost'])
 ActiveRecord::Base.establish_connection(
   :adapter  => "postgresql",
   :host     => "localhost",
-  :username => `whoami`.chomp,
+  :username => "postgres",
   :password => "",
   :database => "test"
 )

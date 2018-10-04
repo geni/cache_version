@@ -22,9 +22,15 @@ database access when the version of a class hasn't changed.
   User.version
   # => 2
 
+== Testing:
+
+  $ echo "CREATE DATABASE test" | psql -U postgres
+  $ bundle install --path bundler --clean
+  $ bundle exec rake test
+
 == Install:
 
-  sudo gem install cache-version -s http://gemcutter.org
+  $ gem install cache-version
 
 Also, you need to create a migration to make the cache_versions table. See examples/sample_migration.rb
 
