@@ -12,7 +12,7 @@ ActiveRecord::Base.establish_connection(
   :host     => "localhost",
   :username => "postgres",
   :password => "",
-  :database => "test"
+  :database => "cache_version_test"
 )
 ActiveRecord::Migration.verbose = false
-ActiveRecord::Base.connection.client_min_messages = 'panic'
+ActiveRecord::Base.connection.client_min_messages = 'error'

@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
   gem.license       = 'MIT'
 
   gem.add_dependency 'memcache'
-  gem.add_dependency 'activerecord', '~> 3.0.0'
+  gem.add_dependency 'activerecord', '~> 8.0'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
