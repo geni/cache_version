@@ -1,23 +1,26 @@
 require_relative 'test_helper'
 
-describe 'with a memcache and db connection' do
-  before do
+class CacheVersionTest < Test::Unit::TestCase
+
+  def self.startup
     system('memcached -d')
     CacheVersionMigration.up
   end
 
-  after do
+  def self.shutdown
     system('killall memcached')
     CacheVersionMigration.down
   end
 
-  it 'will increment cache version' do
+  test 'increment_version' do
     5.times do |i|
       assert_equal i, Object.version
       Object.increment_version
       assert_equal i + 1, Object.version
     end
+
     CacheVersion.clear_cache
     assert_equal 5, Object.version
   end
-end
+
+end # class CacheVersionTest

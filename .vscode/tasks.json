@@ -1,0 +1,31 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "analyze file",
+      "type": "shell",
+      "command": "ruby -c ${file}",
+      "presentation": {
+        "clear": true
+      }
+    },{
+      "label": "run all tests in file",
+      "group": "test",
+      "type": "shell",
+      "command": "bundle exec bin/test test ${file}",
+      "problemMatcher": [],
+      "presentation": {
+        "clear": true
+      }
+    },{
+      "label": "run current test in file",
+      "group": "test",
+      "type": "shell",
+      "command": "bundle exec bin/test ${file}:${lineNumber}",
+      "problemMatcher": [],
+      "presentation": {
+        "clear": true
+      },
+    }
+  ]
+}

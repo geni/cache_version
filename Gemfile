@@ -5,6 +5,7 @@ gemspec
 group :test do
   gem 'memcache', :git => 'https://github.com/stangel/memcache.git', :branch => 'ruby-3.4.x'
   gem 'pg', '~>1.5.0' # 1.6 requires GLIBC 2.29 which CentOS 8 Stream doesn't have
+  gem 'method_source', :require => false # used by bin/test
   gem 'rake'
   gem 'test-unit'
 end
