@@ -8,7 +8,7 @@ database access when the version of a class hasn't changed.
 
   CacheVersion.get(User)
   # => 0
-  
+
   CacheVersion.increment(User)
   CacheVersion.get(User)
   # => 1

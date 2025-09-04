@@ -1,5 +1,4 @@
-pkg
-*~
+.bash_history
 Gemfile.lock
 .bundle
 vendor
