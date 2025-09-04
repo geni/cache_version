@@ -94,7 +94,7 @@ class Module
   end
 end
 
-class CacheVersionMigration < ActiveRecord::Migration
+class CacheVersionMigration < ActiveRecord::Migration[4.2]
   def self.up
     create_table :cache_versions, :id => false do |t|
       t.column :key, :string

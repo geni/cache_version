@@ -24,8 +24,8 @@ database access when the version of a class hasn't changed.
 
 == Testing:
 
-  $ echo "CREATE DATABASE test" | psql -U postgres
-  $ bundle install --path bundler --clean
+  $ echo "CREATE DATABASE cache_version_test" | psql -U postgres
+  $ bundle install --path vendor/bundle --clean
   $ bundle exec rake test
 
 == Install:
