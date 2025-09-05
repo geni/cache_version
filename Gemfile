@@ -1,9 +1,22 @@
 source "http://www.rubygems.org"
 
-gem 'memcache', :git => 'https://github.com/stangel/memcache.git', :branch => 'ruby-3'
-gem 'minitest'
-gem "pg", "~>1.6"
-gem 'rake'
-gem 'test-unit'
-
 gemspec
+
+group :test do
+  gem 'memcache', :git => 'https://github.com/stangel/memcache.git', :branch => 'ruby-3'
+  gem 'pg', '~>1.5.0' # 1.6 requires GLIBC 2.29 which CentOS 8 Stream doesn't have
+  gem 'method_source', :require => false # used by bin/test
+  gem 'rake'
+  gem 'test-unit'
+end
+
+group :vscode do
+  gem 'debase',           :require => false
+  gem 'debug',            :require => false
+  gem 'rainbow',          :require => false
+  gem 'rdbg',             :require => false
+  gem 'ruby-debug-ide',   :require => false
+  gem 'ruby-lsp',         :require => false
+  gem 'solargraph',       :require => false
+end
+

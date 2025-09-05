@@ -1,5 +1,5 @@
 require 'bundler'
-require 'minitest/autorun'
+require 'test/unit'
 
 $LOAD_PATH.unshift File.dirname(__FILE__) + "/../lib"
 $LOAD_PATH.unshift File.dirname(__FILE__) + "/../../memcache/lib"
