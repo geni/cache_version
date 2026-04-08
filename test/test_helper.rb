@@ -9,7 +9,7 @@ require 'cache_version'
 CACHE = Memcache.new(:servers => ['localhost'])
 ActiveRecord::Base.establish_connection(
   :adapter  => "postgresql",
-  :host     => "localhost",
+  :host     => ENV.fetch('DB_HOST', 'localhost'),
   :username => "postgres",
   :password => "",
   :database => "cache_version_test"
