@@ -9,4 +9,4 @@ rm -f Gemfile.lock
 
 bundle install
 
-bundle exec rails test
+bundle exec rake test
